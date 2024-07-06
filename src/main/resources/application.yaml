@@ -30,7 +30,8 @@ eureka:
     hostname: ${HOSTNAME:localhost}
 
 orderProduct:
-  url: https://unirsoft-gateway-production.up.railway.app/buscador-service/api/peliculas
+  url: http://buscador-service/api/peliculas
+  #https://unirsoft-gateway-production.up.railway.app/buscador-service/api/peliculas
   # https://unirsoft-gateway-production.up.railway.app/buscador-service/api/peliculas
   #https://unirsoft-buscador-production.up.railway.app/api/peliculas
   #https://buscador-service/api/peliculas/%s
