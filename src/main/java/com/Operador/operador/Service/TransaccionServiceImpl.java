@@ -65,7 +65,8 @@ public class TransaccionServiceImpl {
         transaccionId.setTraEstado("COMPLETED");
         transaccion.setId(transaccionId);
         transaccion.setTraFecini(new Date());
-        transaccion.setTraFecfin(new Date());
+        //transaccion.setTraFecfin(new Date());
+        transaccion.setTraFecfin(orderRequest.getTraFecfin());
         transaccion.setUsuario(usuario);
         TipoTransaccion tipoTransaccion=tipoTransaccionRepository.findByIdUni(orderRequest.getType());
         transaccion.setTipoTransaccion(tipoTransaccion);
