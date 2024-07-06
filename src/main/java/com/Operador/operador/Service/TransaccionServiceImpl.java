@@ -6,7 +6,7 @@ import com.Operador.operador.Entidad.Transaccion;
 import com.Operador.operador.Entidad.TransaccionId;
 import com.Operador.operador.Entidad.model.request.TransaccionRequest;
 import com.Operador.operador.Entidad.model.response.TransaccionResponse;
-import com.Operador.operador.Entidad.model.response.ProductResponse;
+import com.Operador.operador.Entidad.model.response.Pelicula;
 import com.Operador.operador.Repositorio.TransaccionRepository;
 import com.Operador.operador.Repositorio.UsuarioRepository;
 import com.Operador.operador.facade.PeliculaFacade;
@@ -43,8 +43,9 @@ public class TransaccionServiceImpl {
         }
 
         for (Integer movieId : orderRequest.getMovieIds()) {
-                ProductResponse productResponse = productsFacade.getProductDetails(movieId);
+            Pelicula productResponse = productsFacade.getProductDetails(movieId);
             if (productResponse != null) {
+
                 saveTransaccion(orderRequest,usuario, productResponse);
             }
         }
@@ -54,12 +55,12 @@ public class TransaccionServiceImpl {
         return orderResponse;
     }
 
-    private void saveTransaccion(TransaccionRequest orderRequest, Usuario usuario , ProductResponse productResponse) {
+    private void saveTransaccion(TransaccionRequest orderRequest, Usuario usuario , Pelicula productResponse) {
         Transaccion transaccion = new Transaccion();
         TransaccionId transaccionId = new TransaccionId();
         transaccionId.setTraId(transaccionRepository.findMaxTransId().orElse(0));
         transaccionId.setTraUser(orderRequest.getUserId());
-        transaccionId.setTraFilm(productResponse.getId());
+        transaccionId.setTraFilm(Integer.parseInt(productResponse.getIdFilm()));
         transaccionId.setTraTipo(orderRequest.getType());
         transaccionId.setTraEstado("COMPLETED");
         transaccion.setId(transaccionId);

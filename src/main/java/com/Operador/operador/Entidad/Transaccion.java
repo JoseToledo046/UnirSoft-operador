@@ -33,5 +33,11 @@ public class Transaccion {
     @JoinColumn(name = "tra_user")
     private Usuario usuario;
 
+    @PrePersist
+    protected void onCreate() {
+        if (this.id.getTraFilm() == null) {
+            this.id.setTraFilm(0);
+        }
+    }
 
 }

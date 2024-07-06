@@ -2,7 +2,9 @@ package com.Operador.operador.Entidad;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Set;
@@ -12,7 +14,8 @@ import java.util.Set;
 @Table(name = "t_usuario")
 @Getter
 @Setter
-
+@AllArgsConstructor
+@NoArgsConstructor
 public class Usuario {
     @Id
     @Column(name = "tu_userid")

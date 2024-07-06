@@ -1,7 +1,5 @@
 package com.Operador.operador.Entidad.model.response;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Id;
 import lombok.*;
 
 import java.math.BigDecimal;
@@ -11,8 +9,8 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class ProductResponse {
-    private Integer id;
+public class Pelicula {
+    private String id;
     private String title;
     private String backdropPath;
     private String posterPath;
@@ -23,6 +21,7 @@ public class ProductResponse {
     private String releaseDate;
     private BigDecimal revenue;
     private Integer runtime;
+    private String idFilm;
     private String tagline;
     private BigDecimal voteAverage;
     private BigDecimal voteCount;

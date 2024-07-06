@@ -1,6 +1,7 @@
 package com.Operador.operador.facade;
 
-import com.Operador.operador.Entidad.model.response.ProductResponse;
+import com.Operador.operador.Entidad.model.response.Pelicula;
+import com.Operador.operador.Entidad.model.response.PeliculaResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -19,11 +20,11 @@ public class PeliculaFacade {
     @Autowired
     private  RestTemplate restTemplate;
 
-    public ProductResponse getProductDetails(Integer id) {
+    public Pelicula getProductDetails(Integer id) {
         try {
-            String url = String.format(orderProductUrl, id);
-            ProductResponse productResponse=restTemplate.getForObject(url, ProductResponse.class);
-            return productResponse;
+            String url = String.format(orderProductUrl+"?idFilm=%d", id);
+            PeliculaResponse productResponse=restTemplate.getForObject(url, PeliculaResponse.class);
+            return productResponse.getPeliculas().get(0);
         } catch (HttpClientErrorException e) {
             log.error("Client Error: {}, Product with ID {}", e.getStatusCode(), id);
             return null;

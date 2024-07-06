@@ -1,6 +1,7 @@
 package com.Operador.operador.Controlador;
 
 import com.Operador.operador.Entidad.TipoTransaccion;
+import com.Operador.operador.Entidad.Transaccion;
 import com.Operador.operador.Service.TipoTransaccionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

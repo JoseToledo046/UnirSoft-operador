@@ -34,9 +34,17 @@ public class TransaccionController {
     }
     @GetMapping("/api/transacciones")
     public List<Transaccion> getAll() {
+
         return transaccionService.findAll();
     }
-
+    @GetMapping("/api/transacciones/user")
+    public List<Transaccion> getAllByUser(@RequestParam String tuUserid) {
+        return transaccionService.findAllByUser(tuUserid);
+    }
+    @GetMapping("/api/transacciones/tipo")
+    public List<Transaccion> getAllByTipo(@RequestParam String tra_tipo) {
+        return transaccionService.findAllByTipo(tra_tipo);
+    }
     @GetMapping("/api/transacciones/{id}")
     public ResponseEntity<Transaccion> getById(@PathVariable TransaccionId id) {
         Optional<Transaccion> transaccion = transaccionService.findById(id);

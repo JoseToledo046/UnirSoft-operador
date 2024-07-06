@@ -12,11 +12,12 @@ import org.springframework.web.client.RestTemplate;
 @EnableDiscoveryClient
 public class OperadorApplication {
 
-	@Bean
-	@LoadBalanced
-	 RestTemplate restTemplate() {
-		return new RestTemplate();
-	}
+		@Bean
+		@LoadBalanced
+		 RestTemplate restTemplate() {
+			return new RestTemplate();
+		}
+
 	public static void main(String[] args) {
 		SpringApplication.run(OperadorApplication.class, args);
 	}
